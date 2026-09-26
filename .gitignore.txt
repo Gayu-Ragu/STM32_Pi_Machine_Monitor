@@ -1,0 +1,24 @@
+# STM32CubeIDE build output
+Debug/
+Release/
+*.elf
+*.o
+*.d
+*.su
+*.map
+*.list
+*.bin
+*.hex
+
+# CubeIDE / Eclipse workspace metadata
+.metadata/
+*.launch
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS junk
+.DS_Store
+Thumbs.db
