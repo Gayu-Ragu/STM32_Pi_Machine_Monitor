@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "stdio.h"
+#include "app.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,7 +43,7 @@
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-volatile uint32_t loop_count = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -56,12 +56,7 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-int _write(int file, char *ptr, int len)
-{
-	(void) file;
-	HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
-	return len;
-}
+
 /* USER CODE END 0 */
 
 /**
@@ -95,7 +90,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+app_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -105,10 +100,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-  printf("alive %lu\r\n", HAL_GetTick());
-  HAL_Delay(500);
-  loop_count++;
+app_loop();
   /* USER CODE END 3 */
 }
 }
